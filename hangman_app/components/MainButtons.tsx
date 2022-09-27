@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 function KeyButtons () {
   const data: string[][] = [
     ['los angeles', 'long beach', 'san francisco', 'san diego', 'new york city', 'seattle', 'las vegas', 'chicago', 'dallas', 'houston', 'new orleans', 'honolulu', 'phoenix', 'miami', 'philidelphia', 'atlanta'],
-    ['pinocchio', 'toy story', 'the incredibles', 'dumbo', 'ratatouille', 'up', 'wall-e', 'the jungle', 'beauty and the beast', 'finding nemo', 'bambi', 'cinderella', 'the little mermaid', 'the lion king', 'the lady and the tramp', 'moana', 'the princess and the frog', 'peter pan', 'aladdin', 'frozen', 'mulan', 'alice in wonderland', 'monsters inc', 'pocahontas'],
+    [],
     ['google', 'meta', 'apple', 'amazon', 'ibm', 'netflix', 'microsoft', 'oracle', 'cisco', 'tesla', 'airbnb', 'snapchat', 'intel', 'atlassian', 'nvidia', 'paypal', 'uber', 'twitter', 'adp', 'amd', 'shopify']
   ]
 
