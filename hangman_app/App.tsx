@@ -1,27 +1,67 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Button, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import styled from 'styled-components/native';
 import { useState } from 'react';
+import axios from 'axios';
+
 
 import KeyButtons from "./components/MainButtons";
 
 function App() {
+  const [opening, setOpening] = useState(false);
+  const [gameData, setGameData] = useState([]);
+
+
+
   return (
     <MainView>
-      <TopView>
-        <Text> Top</Text>
-      </TopView>
-      <ButtonView>
-        <KeyButtons />
-      </ButtonView>
-      <BottomView>
-      </BottomView>
-      <StatusBar style="auto" />
+      {opening
+      ? <MainView>
+          <TopView>
+            <Text>Top</Text>
+          </TopView>
+          <ButtonView>
+            <KeyButtons />
+          </ButtonView>
+          <BottomView>
+          </BottomView>
+          <StatusBar style="auto" />
+        </MainView>
+      :
+        <MainView>
+          <View>
+            <Image
+              source={require('./assets/techg.png')}
+              style={{height: 650, width: 650}}
+            />
+          </View>
+          <View>
+            <PlayNow
+              onPress={()=>setOpening(true)}
+            >
+              <Text>Play Now</Text>
+            </PlayNow>
+          </View>
+        </MainView>
+      }
     </MainView>
   );
 }
 
 export default App;
+
+const PlayNow = styled.TouchableOpacity`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2px;
+  height: 50px;
+  width: 200px;
+  background-color: #ffdd99;
+  border-radius: 5px;
+  border-width: 2px;
+  border-color: #000000;
+`
 
 const TopView = styled.View`
   flex: 3;
@@ -62,3 +102,17 @@ const MainView = styled.View`
   align-items: center;
   justify-content: center;
 `;
+
+/*
+<MainView>
+  <TopView>
+    <Text>Top</Text>
+  </TopView>
+  <ButtonView>
+    <KeyButtons />
+  </ButtonView>
+  <BottomView>
+  </BottomView>
+  <StatusBar style="auto" />
+</MainView>
+*/

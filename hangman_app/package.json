@@ -10,6 +10,7 @@
     "server": "nodemon --exec ts-node server/index.ts"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "dotenv": "^16.0.2",
     "expo": "~46.0.9",
     "expo-status-bar": "~1.4.0",

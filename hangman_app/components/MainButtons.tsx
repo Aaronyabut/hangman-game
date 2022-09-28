@@ -2,15 +2,7 @@ import { View, Text, Button , TextInput, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native'
 
 function KeyButtons () {
-  const data: string[][] = [
-    ['los angeles', 'long beach', 'san francisco', 'san diego', 'new york city', 'seattle', 'las vegas', 'chicago', 'dallas', 'houston', 'new orleans', 'honolulu', 'phoenix', 'miami', 'philidelphia', 'atlanta'],
-    [],
-    ['google', 'meta', 'apple', 'amazon', 'ibm', 'netflix', 'microsoft', 'oracle', 'cisco', 'tesla', 'airbnb', 'snapchat', 'intel', 'atlassian', 'nvidia', 'paypal', 'uber', 'twitter', 'adp', 'amd', 'shopify']
-  ]
-
-  const dataCategory: string[] = ['US City', 'Disney Movie', 'Tech Company']
-
-  const Buttons = 'abcdefghijklmnopqrstuvwxyz';
+  const Buttons: string = 'abcdefghijklmnopqrstuvwxyz';
 
   return (
     <ViewButtons>
@@ -45,7 +37,7 @@ const OpacityButtons = styled.TouchableOpacity`
   border-radius: 5px;
   border-width: 2px;
   border-color: #000000;
-`
+`;
 
 const TextButton = styled.Text`
   display: flex;
@@ -56,7 +48,7 @@ const TextButton = styled.Text`
   font-size: 21px;
   // border-width: 2px;
   // border-color: #000000;
-`
+`;
 
 const InframeButton = styled.View`
   display: flex;
@@ -69,7 +61,6 @@ const InframeButton = styled.View`
   // border-width: 2px;
   // border-color: #000000;
 `;
-
 
 const ViewButtons = styled.View`
   flex: 1;
@@ -91,8 +82,6 @@ const MainButtons = styled.Button`
   border-color: #000000;
 `;
 
-
-
   const SampleText = styled.TextInput`
     flex: 1;
     display: flex;
@@ -103,3 +92,14 @@ const MainButtons = styled.Button`
     justify-content: center
     align-items: center;
   `;
+
+/*
+const data: string[][] = [
+  ['los angeles', 'long beach', 'san francisco', 'san diego', 'new york city', 'seattle', 'las vegas', 'chicago', 'dallas', 'houston', 'new orleans', 'honolulu', 'phoenix', 'miami', 'philidelphia', 'atlanta'],
+  ['javascript', 'python', 'typescript', 'swift', 'html', 'css', 'react', 'react native'],
+  ['google', 'meta', 'apple', 'amazon', 'ibm', 'netflix', 'microsoft', 'oracle', 'cisco', 'tesla', 'airbnb', 'snapchat', 'intel', 'atlassian', 'nvidia', 'paypal', 'uber', 'twitter', 'adp', 'amd', 'shopify']
+]
+
+const dataCategory: string[] = ['US City', 'Disney Movie', 'Tech Company']
+
+*/
