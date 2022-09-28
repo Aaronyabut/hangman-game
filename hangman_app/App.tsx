@@ -1,16 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { Button, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import styled from 'styled-components/native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { PORT, DB_NAME } from './config'
+
+const API_URL = `https://localhost:3000/faang/man`;
 
 
 import KeyButtons from "./components/MainButtons";
 
 function App() {
-  const [opening, setOpening] = useState(false);
-  const [gameData, setGameData] = useState([]);
-
+  const [opening, setOpening] = useState<boolean>(false);
 
 
   return (
@@ -23,8 +24,8 @@ function App() {
           <ButtonView>
             <KeyButtons />
           </ButtonView>
-          <BottomView>
-          </BottomView>
+          {/* <BottomView> */}
+          {/* </BottomView> */}
           <StatusBar style="auto" />
         </MainView>
       :
@@ -64,7 +65,7 @@ const PlayNow = styled.TouchableOpacity`
 `
 
 const TopView = styled.View`
-  flex: 3;
+  flex: 1.25;
   width: 350px;
   border-style: solid;
   border-color: #000000;
@@ -75,7 +76,7 @@ const TopView = styled.View`
 `;
 
 const ButtonView = styled.View`
-  flex: 3;
+  flex: 2;
   width: 350px;
   border-style: solid;
   border-color: #000000;
