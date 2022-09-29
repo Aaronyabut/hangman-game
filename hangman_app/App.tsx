@@ -1,67 +1,135 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Button, Text, View, StyleSheet, TouchableOpacity, Image, TouchableHighlight, ImageBackground } from 'react-native';
 import styled from 'styled-components/native';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { PORT, DB_NAME } from './config'
-
-const API_URL = `https://localhost:3000/faang/man`;
-
 
 import KeyButtons from "./components/MainButtons";
 
 function App() {
   const [opening, setOpening] = useState<boolean>(false);
 
-
   return (
-    <MainView>
+    <Main>
+      <ImageBackground
+        source={require('./assets/background-3.png')}
+      >
       {opening
       ? <MainView>
-          <TopView>
-            <Text>Top</Text>
-          </TopView>
           <ButtonView>
             <KeyButtons />
           </ButtonView>
-          {/* <BottomView> */}
-          {/* </BottomView> */}
           <StatusBar style="auto" />
         </MainView>
       :
         <MainView>
+          <Logo>
+          <FaangImage
+              source={require('./assets/faang.png')}
+            />
+          <ManImage
+              source={require('./assets/man.png')}
+            />
+          </Logo>
           <View>
-            <Image
+            <GuyImage
               source={require('./assets/techg.png')}
-              style={{height: 650, width: 650}}
+              style={{height: 750, width: 750}}
+            />
+            <BlobImage
+              source={require('./assets/graph1.png')}
             />
           </View>
           <View>
             <PlayNow
               onPress={()=>setOpening(true)}
+              underlayColor="#ffc34d"
             >
-              <Text>Play Now</Text>
+              <PlayImg
+                source={require('./assets/playnow.png')}
+              />
             </PlayNow>
           </View>
         </MainView>
       }
-    </MainView>
+      </ImageBackground>
+    </Main>
+
   );
 }
 
 export default App;
 
-const PlayNow = styled.TouchableOpacity`
+
+
+const Logo = styled.View`
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  // border-width: 2px;
+  // border-color: #000000;
+  top: 150px;
+  // left: -98px;
+`
+
+const PlayImg = styled.Image`
+  height: 55px;
+  width: 55px;
+  padding-right: 200px;
+`
+const BlobImage = styled.Image`
+  height: 575px;
+  width: 425px;
+  padding-right: 200px;
+  margin: 15px;
+  // border-width: 2px;
+  // border-color: #000000;
+  position: absolute;
+  top: 105px;
+  left: 155px;
+  z-index: 1;
+`
+const GuyImage = styled.Image`
+  z-index: 2;
+`
+const FaangImage = styled.Image`
+  height: 75px;
+  width: 325px;
+  padding-right: 200px;
+  margin: 15px;
+  // border-width: 2px;
+  // border-color: #000000;
+  // object-fit: contain;
+  position: absolute;
+  top: -55px;
+  left: -25px;
+`
+const ManImage = styled.Image`
+  height: 55px;
+  width: 55px;
+  padding-right: 200px;
+  margin: 15px;
+  // border-width: 2px;
+  // border-color: #000000;
+  object-fit: contain;
+  position: absolute;
+  top: 25px;
+  left: 40px;
+`
+
+const PlayNow = styled.TouchableHighlight`
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 2px;
-  height: 50px;
-  width: 200px;
+  height: 100px;
+  width: 275px;
   background-color: #ffdd99;
   border-radius: 5px;
   border-width: 2px;
   border-color: #000000;
+  position: absolute;
+  top: -135px;
+  left: -138px;
 `
 
 const TopView = styled.View`
@@ -78,31 +146,31 @@ const TopView = styled.View`
 const ButtonView = styled.View`
   flex: 2;
   width: 350px;
-  border-style: solid;
-  border-color: #000000;
+  height: 750px;
+  border-radius: 25px;
   background-color: #d1e0d6;
   margin: 5px;
-  border-width: 2px;
-  border-color: #000000;
+  // border-width: 25px;
+  border-color: #d1e0d6;
 `;
 
-const BottomView = styled.View`
-  flex: .1;
-  width: 350px;
-  // border-style: solid;
-  // border-color: #000000;
-  // background-color: #ffcccc;
-  // border-width: 2px;
-  // border-color: #000000;
-`;
 
 const MainView = styled.View`
   flex: 1;
   display: flex;
-  background-color: #3e5b48;
+  background: transparent;
   align-items: center;
   justify-content: center;
 `;
+
+const Main = styled.View`
+  flex: 1;
+  display: flex;
+  background: #003300;
+  align-items: center;
+  justify-content: center;
+`;
+
 
 /*
 <MainView>
